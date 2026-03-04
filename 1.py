@@ -1,11 +1,12 @@
 from datetime import datetime
 
 def get_days_from_today(date): 
-    date = datetime.strptime(date, "%Y-%m-%d")
-    date_day = date.day
-    today = datetime.today()
-    today_day = today.day
-    diff = date_day - today_day
-    return diff
+    try:
+        date = datetime.strptime(date, "%Y-%m-%d")
+        today = datetime.today()
+        diff = date - today
+        return diff
+    except ValueError:
+        return "Неправильний формат дати! Використовуйте РРРР-ММ-ДД."
 
-print(get_days_from_today("2021-10-09"))
+print(get_days_from_today("3"))
